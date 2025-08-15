@@ -43,3 +43,14 @@ lib/features/presentation/pages # UI screens.
 - Interface Segregation — Smaller, specific contracts instead of large interfaces.
 - Dependency Inversion — High-level modules depend on abstractions, not concrete classes.
 
+
+features/news/data/repositories/news_repository_impl.dart
+•	Converts raw API data into a cleaner format (Entities) for the rest of the app. Acts as a bridge between the API service and the domain layer.
+features/news/domain/repositories/news_repository.dart
+•	An interface (abstract class) that lists the functions the repository should have, without deciding how they’re implemented.
+features/news/domain/usecases/get_top_headlines.dart
+•	Contains the business logic for “Get top headlines.” Calls the repository and returns the result in a format the UI layer can understand.
+features/news/presentation/bloc/news_bloc.dart
+•	Manages state and logic for the News UI. Listens for events (like “fetch headlines”) and updates the screen with loading, success, or error states.
+
+
